@@ -1,0 +1,58 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} {{ website.name}} {% endblock %}
+
+{% block body %}
+<div class="inner" id="inner" >
+    <div class="thumbnails" id="entitiesNav" style="position:relative; margin-top: 100px">
+    <div class="best-features" style="top: 10%;left:10%; ">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="section-heading">
+                            <h1 style="font-size: 25px"> {{ website.name }}</h1>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="left-content">
+                        <h4>Looking for the best products?</h4>
+                        <p><a rel="nofollow" href="https://templatemo.com/tm-546-sixteen-clothing" target="_parent">This template</a> is free to use for your business websites. However, you have no permission to redistribute the downloadable ZIP file on any template collection website. <a rel="nofollow" href="https://templatemo.com/contact">Contact us</a> for more info.</p>
+                        {{ website.description }}
+                        <br>
+                        <a href="{{ website.url }}" target="_blank" class="btn btn-warning">Visit Website</a>
+                        {% if website.iduser.id == app.user.id  and website.deletedAt == null and website.state == 2 %}
+
+                            <div class="alert alert-danger" style="background-color: red;border-color: black" role="alert">
+                                this website isn't accepted by the admin yet
+                            </div>
+
+                        {% elseif website.iduser.id == app.user.id  and website.deletedAt == null and website.state == 1 %}
+                            <a class="btn btn-danger" href="{{ path("delete_website",{"id":website.id}) }}">Delete this website</a>
+
+                        {% elseif website.iduser.id == app.user.id  and website.deletedAt == null and website.state == 0 %}
+                            <div class="alert alert-danger" style="background-color: red;border-color: black" role="alert">
+                                this website is refused by the admin
+                            </div>
+                        {%  elseif website.deletedAt != null %}
+                                <div class="alert alert-danger" style="background-color: red;border-color: black" role="alert">
+                                    this website is deleted
+                                </div>
+                        {% endif %}
+
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="right-image">
+                        <img src="{{  asset('img/websites_logo/')}}{{ website.logo}}">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    </div>
+
+
+
+
+{% endblock %}

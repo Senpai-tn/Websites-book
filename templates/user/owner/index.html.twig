@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+{% block nav %}
+
+{% endblock %}
+
+{% block body %}
+    <style>
+
+    </style>
+
+    <div class="inner" id="inner" >
+
+        <!-- Boxes -->
+        <div class="thumbnails" id="entitiesNav" style="position:relative; margin-top: 150px">
+            {% if websites|length == 0 %}
+                <div class="alert alert-danger" style="position:fixed; top: 20%">You haven't any website yet</div>
+            {% else %}
+
+                {% for w in websites %}
+                    <div class="box" >
+                            <a href="{{ path("show",{"id":w.id})  }}" >
+                            <img src="{{  asset('img/websites_logo/')}}{{ w.logo}}"  width="100%" height="80%">
+                            <h3>{{ w.name }}{{ w.id }}</h3>
+                        </a>
+                    </div>
+                {% endfor %}
+            {% endif %}
+        </div>
+    </div>
+    <a href="{{ path("add_website") }}">
+        <i class="fa fa-plus-circle fa-3x" aria-hidden="true" style="position:fixed; top: 20%;left: 3%;color: greenyellow"></i>
+    </a>
+{% endblock %}

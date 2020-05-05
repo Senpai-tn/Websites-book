@@ -1,0 +1,52 @@
+{% extends "@FOSUser/layout.html.twig" %}
+
+{% block fos_user_content %}
+<center>
+
+
+
+
+
+
+    <div id="second">
+        <div class="myform form ">
+            <div class="logo mb-3">
+                <div class="col-md-12 text-center">
+                    <h1 >Signup</h1>
+                </div>
+            </div>
+            {{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'login100-form validate-form'}}) }}
+                <div class="form-group">
+                    <label for="exampleInputEmail1">First Name</label>
+                    {{ form_widget(form.username,{'attr':{'class':'form-control'}}) }}
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Email address</label>
+                    {{ form_widget(form.email,{'attr':{'class':'form-control'}}) }}
+                </div>
+                <div class="form-group">
+                    <label >Password</label>
+                    {{ form_widget(form.plainPassword.first,{'attr':{'class':'form-control'}}) }}
+
+                </div>
+                <div class="form-group">
+                    <label >Confirm Password</label>
+                    {{ form_widget(form.plainPassword.second,{'attr':{'class':'form-control'}}) }}
+                </div>
+
+                <div class="col-md-12 ">
+                    <div class="form-group">
+                        <p class="text-center"><a href="{{ path('fos_user_security_login') }}" id="signin">Already have an account?</a></p>
+                    </div>
+                </div>
+
+                <div>
+                    <input type="submit" value="Register" class="btn btn-success" />
+                </div>
+
+            {{ form_end(form) }}
+    </div>
+</div>
+
+</center>
+{% endblock %}

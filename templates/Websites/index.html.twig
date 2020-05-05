@@ -1,0 +1,213 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} {{ title }} {% endblock %}
+
+{% block body %}
+
+    <div class="job-search">
+
+        <input type="text" id="search"  style="color: white;font-family: tahoma;font-size: 16px;" placeholder="Search" >
+
+
+        <input type="text" hidden id="i">
+    </div>
+
+    <div class="slideshow-container">
+
+        {% for m in 1..5 %}
+            <div class="mySlides fade">
+
+                <img src="{{ asset('img/banner/') }}{{ m }}.png" width="100%" height="400px">
+
+            </div>
+        {% endfor %}
+
+
+
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+
+    </div>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script>
+        var slideIndex = 1;
+        showSlides(slideIndex);
+
+        function plusSlides(n) {
+            showSlides(slideIndex += n);
+
+        }
+
+        function currentSlide(n) {
+            showSlides(slideIndex = n);
+        }
+
+        function showSlides(n) {
+            var i;
+            var slides = document.getElementsByClassName("mySlides");
+            var dots = document.getElementsByClassName("dot");
+            if (n > slides.length) {slideIndex = 1}
+            if (n < 1) {slideIndex = slides.length}
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active", "");
+            }
+            slides[slideIndex-1].style.display = "block";
+            dots[slideIndex-1].className += " active";
+        }
+
+
+    </script>
+
+
+    <script>
+        var myVar = setInterval(myTimer, 3000);
+        function myTimer() {
+            plusSlides(1);
+        }
+
+        function f() {
+            //alert($("#s").val());
+
+        }
+
+    </script>
+
+    <!-- jQuery is necessary -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            var allWebsites = $("#entitiesNav").html();
+            var searchRequest = null;
+            $("#search").keyup(function() {
+                location.replace("#inner");
+                $("#search").focus();
+                var minlength = 1;
+                var listeLogo = new Array();
+                var listeURL = new Array();
+                {% set k = logo|keys %}
+                {% set indice =0 %}
+
+                {% for l in logo %}
+                    listeLogo[{{ k[indice] }}] = "{{ l }}";
+
+                   {% set indice =indice + 1%}
+                {% endfor %}
+                {% set indice =0 %}
+
+                {% for u in url %}
+                listeURL[{{ k[indice] }}] = "{{ u }}";
+
+                {% set indice =indice + 1%}
+                {% endfor %}
+
+                var that = this;
+                var value = $(this).val();
+                var entitySelector = $("#entitiesNav").html('');
+                if($("#search").val().length == 0)
+                    $("#entitiesNav").html(allWebsites);
+                if (value.length >= minlength ) {
+                    if (searchRequest != null)
+                        searchRequest.abort();
+                    searchRequest = $.ajax({
+                        type: "GET",
+                        url: "{{ path('ajax_search') }}",
+                        data: {
+                            'q' : value
+                        },
+                        dataType: "text",
+                        success: function(msg){
+                            //we need to check if the value is the same
+                            if (value==$(that).val()) {
+                                var result = JSON.parse(msg);
+                                $.each(result, function(key, arr) {
+                                    $.each(arr, function(id, value) {
+                                        if (key == 'entities') {
+                                            if (id != 'error') {
+                                                entitySelector.append('<div class="box" ><a href="/website/'+id+'"> <img src="{{  asset('img/websites_logo/')}}'+listeLogo[id]+'" alt="" width="100%" height="80%"> <h3>'+value+'</h3> </a> </div>');
+                                            } else {
+                                                entitySelector.append('<li class="errorLi">'+value+'</li>');
+                                            }
+                                        }
+                                    });
+                                });
+                            }
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+
+
+
+
+    <section id="banner" data-video="images/banner">
+        <div class="inner">
+
+            <a href="#inner" class="more">Learn More</a>
+        </div>
+    </section>
+
+
+
+
+
+
+    <!-- Main -->
+    <div id="main">
+        <div style="margin-left: 0;position: sticky;z-index: 1;top: 10%;width: 5% " >
+            {% for c in categories %}
+            <a href="{{ path("category",{'id': c.id  }) }}" class="btn btn-primary">
+                {{ c.name }}
+            </a>
+            <br>
+            <br>
+            {% endfor %}
+
+        </div>
+        <div class="inner" id="inner">
+            <!-- Boxes -->
+            <div class="thumbnails" id="entitiesNav">
+                {% for w in websites %}
+                    <div class="box" >
+                        <a href="{{ path("show",{"id":w.id})  }}" >
+                            <img src="{{  asset('img/websites_logo/')}}{{ w.logo}}"  width="100%" height="80%">
+                            <h3>{{ w.name }}</h3>
+                        </a>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer id="footer" style="height: 10px">
+
+        <div>
+            <h2>Etiam veroeros lorem </h2>
+            <p>Pellentesque eleifend malesuada efficitur. Curabitur volutpat dui mi, ac imperdiet dolor tincidunt nec. Ut erat lectus, dictum sit amet lectus a,  </p>
+
+            <ul class="icons">
+                <li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+                <li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+                <li><a href="#" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
+                <li><a href="#" class="icon fa-envelope"><span class="label">Email</span></a></li>
+            </ul>
+            <p class="copyright">&copy; Untitled. Design: <a href="https://templated.co">TEMPLATED</a>. Images: <a href="https://unsplash.com/">Unsplash</a>. Videos: <a href="http://coverr.co/">Coverr</a>.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="{{ asset("fullMotion/assets/js/jquery.min.js")}} }}"></script>
+    <script src="{{ asset("fullMotion/assets/js/jquery.scrolly.min.js") }}"></script>
+    <script src="{{ asset("fullMotion/assets/js/jquery.poptrox.min.js") }}"></script>
+    <script src="{{ asset("fullMotion/assets/js/skel.min.js") }}"></script>
+    <script src="{{ asset("fullMotion/assets/js/util.js")  }}"></script>
+    <script src="{{ asset("fullMotion/assets/js/main.js")  }}"></script>
+
+
+{% endblock %}

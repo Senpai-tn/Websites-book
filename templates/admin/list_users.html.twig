@@ -1,0 +1,63 @@
+{% extends 'baseAdmin.html.twig' %}
+{% block body %}
+
+<style>
+    /* Sortable tables */
+    table.sortable thead {
+        background-color:#eee;
+        color:#666666;
+        font-weight: bold;
+        cursor: default;
+    }
+</style>
+<section id="main-content">
+    <section class="wrapper">
+        <div class="row">
+            <div class="col-lg-8 main-chart">
+
+                <table class="table table-dark sortable">
+                    <thead>
+                    <tr>
+                        <th scope="col">Name</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Role</th>
+
+                        <th>Actions</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                        {% for u in users %}
+                            <tr>
+                                <td>
+                                    {{ u.username }}
+                                </td>
+                                <td>
+                                    {{ u.email }}
+                                </td>
+
+                            {% set isAdmin = false %}
+                            {% for role in u.roles %}
+                                {% if role == "ROLE_ADMIN" %}
+                                    {% set isAdmin=true %}
+                                {% endif %}
+                            {% endfor %}
+                            {% if isAdmin  %}
+                                <td>Admin</td>
+                                <td><a href="{{ path("dispromote",{"id":u.id}) }}">Dispromote</a>  </td>
+                            {% else %}
+                                <td>Vendeur</td>
+                                <td><a href="{{ path("delete_user",{"id":u.id}) }}">Delete</a> <a href="{{ path("promote",{"id":u.id}) }}">promote</a> </td>
+
+                            {% endif %}
+
+                            </tr>
+
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+</section>
+
+{% endblock %}

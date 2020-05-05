@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+{% block title %} Add new Website {% endblock %}
+{% block body %}
+
+    <div style="margin: 5% 5% 5% 5%">
+        <section role="main" class="content-body">
+            <div class="form-group">
+                {{ form_start(form)   }}
+
+                {{ form_widget(form) }}
+
+                {{ form_end(form) }}
+            </div>
+        </section>
+    </div>
+
+{% endblock %}
