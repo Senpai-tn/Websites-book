@@ -20,9 +20,10 @@
                         {{ website.description }}
                         <br>
                         <a href="{{ website.url }}" target="_blank" class="btn btn-warning">Visit Website</a>
+                        {% if app.user %}
                         {% if website.iduser.id == app.user.id  and website.deletedAt == null and website.state == 2 %}
 
-                            <div class="alert alert-danger" style="background-color: red;border-color: black" role="alert">
+                            <div class="alert alert-warning"  role="alert">
                                 this website isn't accepted by the admin yet
                             </div>
 
@@ -38,6 +39,7 @@
                                     this website is deleted
                                 </div>
                         {% endif %}
+                        {% endif %}
 
                     </div>
                 </div>
@@ -46,8 +48,14 @@
                         <img src="{{  asset('img/websites_logo/')}}{{ website.logo}}">
                     </div>
                 </div>
+                {% if app.user %}
+                    {% if website.iduser.id == app.user.id and website.deletedAt == null and website.state != 0 %}
+                        <a class="btn btn-primary" style="display:inline;height:50px" href="{{ path("update",{"id":website.id}) }}">Update</a>
+                    {% endif %}
+                {% endif %} 
             </div>
         </div>
+                
     </div>
 </div>
     </div>

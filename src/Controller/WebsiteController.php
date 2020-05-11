@@ -16,6 +16,8 @@ use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Security\Core\Authorization\AccessDecisionManagerInterface;
+use function Sodium\add;
 
 class WebsiteController extends AbstractController
 {
@@ -335,5 +337,86 @@ class WebsiteController extends AbstractController
         $m->flush();
         return $this->redirect($this->generateUrl("list_websites"));
     }
+
+    /**
+    * @Route("/update/{id}",name="update")
+    */
+    public function update($id,Request $r)
+    {
+        $m = $this->getDoctrine()->getManager();
+        $admins = $m->getRepository(User::class)->findAll();
+        $a = [];
+        foreach ($admins as $user)
+        {
+            if (in_array("ROLE_ADMIN",$user->getRoles()))
+            {
+                $u["id"] = $user->getID();
+                $u["username"] = $user->getUsername();
+                $u["email"] = $user->getEmail();
+                array_push($a, $u);
+            }
+
+
+        }
+        //var_dump($a);
+        //die();
+        return $this->json($a);
+    	if (($this->container->get('security.authorization_checker')->isGranted('ROLE_VENDEUR'))) {
+            $m = $this->getDoctrine()->getManager();
+            
+            $w =  $m->getRepository(Website::class)->find($id);
+            $form = $this->createForm(WebsiteType::class, $w);
+            $form->handleRequest($r);
+            	
+            if ($form->isSubmitted() && $form->isValid()) {
+                if($form['logo'] != null )
+                $brochureFile = $form['logo']->getData();
+
+                if ($brochureFile) {
+                    $originalFilename = pathinfo($brochureFile->getClientOriginalName(), PATHINFO_FILENAME);
+                    // this is needed to safely include the file name as part of the URL
+                    $safeFilename = transliterator_transliterate('Any-Latin; Latin-ASCII; [^A-Za-z0-9_] remove; Lower()', $originalFilename);
+                    $newFilename = $safeFilename . '-' . uniqid() . '.' . $brochureFile->guessExtension();
+                    // Move the file to the directory where brochures are stored
+                    try {
+                        	if($brochureFile != null )
+	                        	{
+	                        		$brochureFile->move(
+		                            $this->getParameter('images_directory'),
+		                            $newFilename
+		                        	);
+	                        	}
+						if($brochureFile == null )
+                        	$w->setLogo($w->getLogo());
+                    	else
+                        	$w->setLogo($newFilename);
+                        $c = $m->getRepository(Category::class)->find($r->request->get("website")["category"]);
+                        $w->setCategory($c);
+                        $u = $this->container->get('security.token_storage')->getToken()->getUser();
+                        $w->setIdUser($u);
+                        $w->setNbVisites($w->getNbVisites());
+                        $w->setState($w->getState());
+                        $w->setCreatedAt($w->getCreatedAt());
+                        $m->persist($w);
+                        $m->flush();
+                            return $this->redirect($this->generateUrl("show",["id"=>$id]));
+                    } catch (FileException $e) {
+                        return $this->render('404.html.twig');
+                    }
+                }
+            }
+
+
+            return $this->render('Websites/update.html.twig', [
+                'form' => $form->createView(),
+                'website'=>$w
+                
+            ]);
+        }
+        else
+            return $this->render('403.html.twig');
+    }
+
+   
 
 }

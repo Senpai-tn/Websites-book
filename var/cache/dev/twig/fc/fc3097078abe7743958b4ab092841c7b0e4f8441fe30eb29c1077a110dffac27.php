@@ -123,7 +123,6 @@ class __TwigTemplate_53e8376e13574ef20a6fb8c83a03c80c8246c1d71ee414d70c154c8baf8
                             <h3>";
                 // line 23
                 echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["w"], "name", [], "any", false, false, false, 23), "html", null, true);
-                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["w"], "id", [], "any", false, false, false, 23), "html", null, true);
                 echo "</h3>
                         </a>
                     </div>
@@ -165,7 +164,7 @@ class __TwigTemplate_53e8376e13574ef20a6fb8c83a03c80c8246c1d71ee414d70c154c8baf8
 
     public function getDebugInfo()
     {
-        return array (  143 => 30,  139 => 28,  136 => 27,  125 => 23,  120 => 22,  116 => 21,  113 => 20,  109 => 19,  106 => 18,  102 => 16,  100 => 15,  90 => 7,  80 => 6,  69 => 3,  59 => 2,  36 => 1,);
+        return array (  142 => 30,  138 => 28,  135 => 27,  125 => 23,  120 => 22,  116 => 21,  113 => 20,  109 => 19,  106 => 18,  102 => 16,  100 => 15,  90 => 7,  80 => 6,  69 => 3,  59 => 2,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -192,7 +191,7 @@ class __TwigTemplate_53e8376e13574ef20a6fb8c83a03c80c8246c1d71ee414d70c154c8baf8
                     <div class=\"box\" >
                             <a href=\"{{ path(\"show\",{\"id\":w.id})  }}\" >
                             <img src=\"{{  asset('img/websites_logo/')}}{{ w.logo}}\"  width=\"100%\" height=\"80%\">
-                            <h3>{{ w.name }}{{ w.id }}</h3>
+                            <h3>{{ w.name }}</h3>
                         </a>
                     </div>
                 {% endfor %}

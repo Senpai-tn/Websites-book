@@ -115,52 +115,75 @@ class __TwigTemplate_2e601126afc4174595e070ecc0ce08a447c00f6edf985787f22b7531534
         echo "\" target=\"_blank\" class=\"btn btn-warning\">Visit Website</a>
                         ";
         // line 23
-        if (((0 === twig_compare(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["website"]) || array_key_exists("website", $context) ? $context["website"] : (function () { throw new RuntimeError('Variable "website" does not exist.', 23, $this->source); })()), "iduser", [], "any", false, false, false, 23), "id", [], "any", false, false, false, 23), twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 23, $this->source); })()), "user", [], "any", false, false, false, 23), "id", [], "any", false, false, false, 23)) && 0 === twig_compare(twig_get_attribute($this->env, $this->source, (isset($context["website"]) || array_key_exists("website", $context) ? $context["website"] : (function () { throw new RuntimeError('Variable "website" does not exist.', 23, $this->source); })()), "deletedAt", [], "any", false, false, false, 23), null)) && 0 === twig_compare(twig_get_attribute($this->env, $this->source, (isset($context["website"]) || array_key_exists("website", $context) ? $context["website"] : (function () { throw new RuntimeError('Variable "website" does not exist.', 23, $this->source); })()), "state", [], "any", false, false, false, 23), 2))) {
+        if (twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 23, $this->source); })()), "user", [], "any", false, false, false, 23)) {
             // line 24
-            echo "
-                            <div class=\"alert alert-danger\" style=\"background-color: red;border-color: black\" role=\"alert\">
+            echo "                        ";
+            if (((0 === twig_compare(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["website"]) || array_key_exists("website", $context) ? $context["website"] : (function () { throw new RuntimeError('Variable "website" does not exist.', 24, $this->source); })()), "iduser", [], "any", false, false, false, 24), "id", [], "any", false, false, false, 24), twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 24, $this->source); })()), "user", [], "any", false, false, false, 24), "id", [], "any", false, false, false, 24)) && 0 === twig_compare(twig_get_attribute($this->env, $this->source, (isset($context["website"]) || array_key_exists("website", $context) ? $context["website"] : (function () { throw new RuntimeError('Variable "website" does not exist.', 24, $this->source); })()), "deletedAt", [], "any", false, false, false, 24), null)) && 0 === twig_compare(twig_get_attribute($this->env, $this->source, (isset($context["website"]) || array_key_exists("website", $context) ? $context["website"] : (function () { throw new RuntimeError('Variable "website" does not exist.', 24, $this->source); })()), "state", [], "any", false, false, false, 24), 2))) {
+                // line 25
+                echo "
+                            <div class=\"alert alert-warning\"  role=\"alert\">
                                 this website isn't accepted by the admin yet
                             </div>
 
                         ";
-        } elseif (((0 === twig_compare(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source,         // line 29
-(isset($context["website"]) || array_key_exists("website", $context) ? $context["website"] : (function () { throw new RuntimeError('Variable "website" does not exist.', 29, $this->source); })()), "iduser", [], "any", false, false, false, 29), "id", [], "any", false, false, false, 29), twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 29, $this->source); })()), "user", [], "any", false, false, false, 29), "id", [], "any", false, false, false, 29)) && 0 === twig_compare(twig_get_attribute($this->env, $this->source, (isset($context["website"]) || array_key_exists("website", $context) ? $context["website"] : (function () { throw new RuntimeError('Variable "website" does not exist.', 29, $this->source); })()), "deletedAt", [], "any", false, false, false, 29), null)) && 0 === twig_compare(twig_get_attribute($this->env, $this->source, (isset($context["website"]) || array_key_exists("website", $context) ? $context["website"] : (function () { throw new RuntimeError('Variable "website" does not exist.', 29, $this->source); })()), "state", [], "any", false, false, false, 29), 1))) {
-            // line 30
-            echo "                            <a class=\"btn btn-danger\" href=\"";
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("delete_website", ["id" => twig_get_attribute($this->env, $this->source, (isset($context["website"]) || array_key_exists("website", $context) ? $context["website"] : (function () { throw new RuntimeError('Variable "website" does not exist.', 30, $this->source); })()), "id", [], "any", false, false, false, 30)]), "html", null, true);
-            echo "\">Delete this website</a>
+            } elseif (((0 === twig_compare(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source,             // line 30
+(isset($context["website"]) || array_key_exists("website", $context) ? $context["website"] : (function () { throw new RuntimeError('Variable "website" does not exist.', 30, $this->source); })()), "iduser", [], "any", false, false, false, 30), "id", [], "any", false, false, false, 30), twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 30, $this->source); })()), "user", [], "any", false, false, false, 30), "id", [], "any", false, false, false, 30)) && 0 === twig_compare(twig_get_attribute($this->env, $this->source, (isset($context["website"]) || array_key_exists("website", $context) ? $context["website"] : (function () { throw new RuntimeError('Variable "website" does not exist.', 30, $this->source); })()), "deletedAt", [], "any", false, false, false, 30), null)) && 0 === twig_compare(twig_get_attribute($this->env, $this->source, (isset($context["website"]) || array_key_exists("website", $context) ? $context["website"] : (function () { throw new RuntimeError('Variable "website" does not exist.', 30, $this->source); })()), "state", [], "any", false, false, false, 30), 1))) {
+                // line 31
+                echo "                            <a class=\"btn btn-danger\" href=\"";
+                echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("delete_website", ["id" => twig_get_attribute($this->env, $this->source, (isset($context["website"]) || array_key_exists("website", $context) ? $context["website"] : (function () { throw new RuntimeError('Variable "website" does not exist.', 31, $this->source); })()), "id", [], "any", false, false, false, 31)]), "html", null, true);
+                echo "\">Delete this website</a>
 
                         ";
-        } elseif (((0 === twig_compare(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source,         // line 32
-(isset($context["website"]) || array_key_exists("website", $context) ? $context["website"] : (function () { throw new RuntimeError('Variable "website" does not exist.', 32, $this->source); })()), "iduser", [], "any", false, false, false, 32), "id", [], "any", false, false, false, 32), twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 32, $this->source); })()), "user", [], "any", false, false, false, 32), "id", [], "any", false, false, false, 32)) && 0 === twig_compare(twig_get_attribute($this->env, $this->source, (isset($context["website"]) || array_key_exists("website", $context) ? $context["website"] : (function () { throw new RuntimeError('Variable "website" does not exist.', 32, $this->source); })()), "deletedAt", [], "any", false, false, false, 32), null)) && 0 === twig_compare(twig_get_attribute($this->env, $this->source, (isset($context["website"]) || array_key_exists("website", $context) ? $context["website"] : (function () { throw new RuntimeError('Variable "website" does not exist.', 32, $this->source); })()), "state", [], "any", false, false, false, 32), 0))) {
-            // line 33
-            echo "                            <div class=\"alert alert-danger\" style=\"background-color: red;border-color: black\" role=\"alert\">
+            } elseif (((0 === twig_compare(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source,             // line 33
+(isset($context["website"]) || array_key_exists("website", $context) ? $context["website"] : (function () { throw new RuntimeError('Variable "website" does not exist.', 33, $this->source); })()), "iduser", [], "any", false, false, false, 33), "id", [], "any", false, false, false, 33), twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 33, $this->source); })()), "user", [], "any", false, false, false, 33), "id", [], "any", false, false, false, 33)) && 0 === twig_compare(twig_get_attribute($this->env, $this->source, (isset($context["website"]) || array_key_exists("website", $context) ? $context["website"] : (function () { throw new RuntimeError('Variable "website" does not exist.', 33, $this->source); })()), "deletedAt", [], "any", false, false, false, 33), null)) && 0 === twig_compare(twig_get_attribute($this->env, $this->source, (isset($context["website"]) || array_key_exists("website", $context) ? $context["website"] : (function () { throw new RuntimeError('Variable "website" does not exist.', 33, $this->source); })()), "state", [], "any", false, false, false, 33), 0))) {
+                // line 34
+                echo "                            <div class=\"alert alert-danger\" style=\"background-color: red;border-color: black\" role=\"alert\">
                                 this website is refused by the admin
                             </div>
                         ";
-        } elseif (0 !== twig_compare(twig_get_attribute($this->env, $this->source,         // line 36
-(isset($context["website"]) || array_key_exists("website", $context) ? $context["website"] : (function () { throw new RuntimeError('Variable "website" does not exist.', 36, $this->source); })()), "deletedAt", [], "any", false, false, false, 36), null)) {
-            // line 37
-            echo "                                <div class=\"alert alert-danger\" style=\"background-color: red;border-color: black\" role=\"alert\">
+            } elseif (0 !== twig_compare(twig_get_attribute($this->env, $this->source,             // line 37
+(isset($context["website"]) || array_key_exists("website", $context) ? $context["website"] : (function () { throw new RuntimeError('Variable "website" does not exist.', 37, $this->source); })()), "deletedAt", [], "any", false, false, false, 37), null)) {
+                // line 38
+                echo "                                <div class=\"alert alert-danger\" style=\"background-color: red;border-color: black\" role=\"alert\">
                                     this website is deleted
                                 </div>
                         ";
+            }
+            // line 42
+            echo "                        ";
         }
-        // line 41
+        // line 43
         echo "
                     </div>
                 </div>
                 <div class=\"col-md-4\">
                     <div class=\"right-image\">
                         <img src=\"";
-        // line 46
+        // line 48
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("img/websites_logo/"), "html", null, true);
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["website"]) || array_key_exists("website", $context) ? $context["website"] : (function () { throw new RuntimeError('Variable "website" does not exist.', 46, $this->source); })()), "logo", [], "any", false, false, false, 46), "html", null, true);
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["website"]) || array_key_exists("website", $context) ? $context["website"] : (function () { throw new RuntimeError('Variable "website" does not exist.', 48, $this->source); })()), "logo", [], "any", false, false, false, 48), "html", null, true);
         echo "\">
                     </div>
                 </div>
+                ";
+        // line 51
+        if (twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 51, $this->source); })()), "user", [], "any", false, false, false, 51)) {
+            // line 52
+            echo "                    ";
+            if (((0 === twig_compare(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["website"]) || array_key_exists("website", $context) ? $context["website"] : (function () { throw new RuntimeError('Variable "website" does not exist.', 52, $this->source); })()), "iduser", [], "any", false, false, false, 52), "id", [], "any", false, false, false, 52), twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 52, $this->source); })()), "user", [], "any", false, false, false, 52), "id", [], "any", false, false, false, 52)) && 0 === twig_compare(twig_get_attribute($this->env, $this->source, (isset($context["website"]) || array_key_exists("website", $context) ? $context["website"] : (function () { throw new RuntimeError('Variable "website" does not exist.', 52, $this->source); })()), "deletedAt", [], "any", false, false, false, 52), null)) && 0 !== twig_compare(twig_get_attribute($this->env, $this->source, (isset($context["website"]) || array_key_exists("website", $context) ? $context["website"] : (function () { throw new RuntimeError('Variable "website" does not exist.', 52, $this->source); })()), "state", [], "any", false, false, false, 52), 0))) {
+                // line 53
+                echo "                        <a class=\"btn btn-primary\" style=\"display:inline;height:50px\" href=\"";
+                echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("update", ["id" => twig_get_attribute($this->env, $this->source, (isset($context["website"]) || array_key_exists("website", $context) ? $context["website"] : (function () { throw new RuntimeError('Variable "website" does not exist.', 53, $this->source); })()), "id", [], "any", false, false, false, 53)]), "html", null, true);
+                echo "\">Update</a>
+                    ";
+            }
+            // line 55
+            echo "                ";
+        }
+        echo " 
             </div>
         </div>
+                
     </div>
 </div>
     </div>
@@ -189,7 +212,7 @@ class __TwigTemplate_2e601126afc4174595e070ecc0ce08a447c00f6edf985787f22b7531534
 
     public function getDebugInfo()
     {
-        return array (  157 => 46,  150 => 41,  144 => 37,  142 => 36,  137 => 33,  135 => 32,  129 => 30,  127 => 29,  120 => 24,  118 => 23,  114 => 22,  109 => 20,  99 => 13,  90 => 6,  80 => 5,  59 => 3,  36 => 1,);
+        return array (  181 => 55,  175 => 53,  172 => 52,  170 => 51,  163 => 48,  156 => 43,  153 => 42,  147 => 38,  145 => 37,  140 => 34,  138 => 33,  132 => 31,  130 => 30,  123 => 25,  120 => 24,  118 => 23,  114 => 22,  109 => 20,  99 => 13,  90 => 6,  80 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -216,9 +239,10 @@ class __TwigTemplate_2e601126afc4174595e070ecc0ce08a447c00f6edf985787f22b7531534
                         {{ website.description }}
                         <br>
                         <a href=\"{{ website.url }}\" target=\"_blank\" class=\"btn btn-warning\">Visit Website</a>
+                        {% if app.user %}
                         {% if website.iduser.id == app.user.id  and website.deletedAt == null and website.state == 2 %}
 
-                            <div class=\"alert alert-danger\" style=\"background-color: red;border-color: black\" role=\"alert\">
+                            <div class=\"alert alert-warning\"  role=\"alert\">
                                 this website isn't accepted by the admin yet
                             </div>
 
@@ -234,6 +258,7 @@ class __TwigTemplate_2e601126afc4174595e070ecc0ce08a447c00f6edf985787f22b7531534
                                     this website is deleted
                                 </div>
                         {% endif %}
+                        {% endif %}
 
                     </div>
                 </div>
@@ -242,8 +267,14 @@ class __TwigTemplate_2e601126afc4174595e070ecc0ce08a447c00f6edf985787f22b7531534
                         <img src=\"{{  asset('img/websites_logo/')}}{{ website.logo}}\">
                     </div>
                 </div>
+                {% if app.user %}
+                    {% if website.iduser.id == app.user.id and website.deletedAt == null and website.state != 0 %}
+                        <a class=\"btn btn-primary\" style=\"display:inline;height:50px\" href=\"{{ path(\"update\",{\"id\":website.id}) }}\">Update</a>
+                    {% endif %}
+                {% endif %} 
             </div>
         </div>
+                
     </div>
 </div>
     </div>

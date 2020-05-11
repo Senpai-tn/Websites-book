@@ -33,6 +33,7 @@ return [
     'delete_website' => [['id'], ['_controller' => 'App\\Controller\\WebsiteController::Delete'], [], [['variable', '/', '[^/]++', 'id'], ['text', '/websitedelete']], [], []],
     'accept' => [['id'], ['_controller' => 'App\\Controller\\WebsiteController::Accept'], [], [['variable', '/', '[^/]++', 'id'], ['text', '/accept']], [], []],
     'refuse' => [['id'], ['_controller' => 'App\\Controller\\WebsiteController::Refuse'], [], [['variable', '/', '[^/]++', 'id'], ['text', '/refuse']], [], []],
+    'update' => [['id'], ['_controller' => 'App\\Controller\\WebsiteController::update'], [], [['variable', '/', '[^/]++', 'id'], ['text', '/update']], [], []],
     'fos_user_security_login' => [[], ['_controller' => 'fos_user.security.controller:loginAction'], [], [['text', '/login']], [], []],
     'fos_user_security_check' => [[], ['_controller' => 'fos_user.security.controller:checkAction'], [], [['text', '/login_check']], [], []],
     'fos_user_security_logout' => [[], ['_controller' => 'fos_user.security.controller:logoutAction'], [], [['text', '/logout']], [], []],

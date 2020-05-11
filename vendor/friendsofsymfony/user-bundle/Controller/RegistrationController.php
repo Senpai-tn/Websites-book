@@ -78,6 +78,7 @@ class RegistrationController extends Controller
                 $this->userManager->updateUser($user);
 
                 if (null === $response = $event->getResponse()) {
+                    $user->addRole('ROLE_VENDEUR');
                     $url = $this->generateUrl('fos_user_registration_confirmed');
                     $response = new RedirectResponse($url);
                 }

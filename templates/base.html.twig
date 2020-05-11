@@ -138,6 +138,8 @@
             <a class="btn btn-success" href="{{ path('fos_user_security_login') }}">Login</a>
         {% else %}
             <a class="btn btn-warning" href="{{ path('owner') }}"> My Websites</a>
+            <a class="btn btn-info" href="{{ path("fos_user_security_logout") }}">Logout</a> 
+
         {% endif %}
         <a href="" class="btn btn-success" > contact</a>
         {% block nav %}

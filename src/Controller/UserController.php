@@ -17,12 +17,14 @@ class UserController extends AbstractController
      */
     public function Owner(Request $r)
     {
+        if (($this->container->get('security.authorization_checker')->isGranted('ROLE_VENDEUR'))) {
         $m = $this->getDoctrine()->getManager();
         $u=$this->container->get('security.token_storage')->getToken()->getUser();
         $websites = $m->getRepository(Website::class)->findBy(["idUser"=>$u->getId()]);
-
-
         return $this->render('user/owner/index.html.twig',['websites'=>$websites]);
+        }
+        else 
+        return $this->render('403.html.twig');
     }
 
 
@@ -48,7 +50,7 @@ class UserController extends AbstractController
         $user->addRole('ROLE_ADMIN');
         $m->persist($user);
         $m->flush();
-        return $this->redirect($this->generateUrl("users"));
+        return $this->redirect($this->generateUrl("users"));        
     }
 
     /**

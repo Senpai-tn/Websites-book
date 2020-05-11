@@ -18,7 +18,7 @@ class WebsiteType extends AbstractType
         $builder
             ->add('Name')
             ->add('URL')
-            ->add('logo',FileType::class)
+            ->add('logo',FileType::class, array('data_class' => null,'required' => false))
             ->add('description')
             ->add('category', EntityType::class, [
                 // looks for choices from this entity

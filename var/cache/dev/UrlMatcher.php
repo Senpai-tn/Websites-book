@@ -58,16 +58,19 @@ return [
                 .')'
                 .'|/promote/([^/]++)(*:239)'
                 .'|/dispromote/([^/]++)(*:267)'
-                .'|/user/delete/([^/]++)(*:296)'
-                .'|/website(?'
-                    .'|/([^/]++)(*:324)'
-                    .'|delete/([^/]++)(*:347)'
+                .'|/u(?'
+                    .'|ser/delete/([^/]++)(*:299)'
+                    .'|pdate/([^/]++)(*:321)'
                 .')'
-                .'|/accept/([^/]++)(*:372)'
+                .'|/website(?'
+                    .'|/([^/]++)(*:350)'
+                    .'|delete/([^/]++)(*:373)'
+                .')'
+                .'|/accept/([^/]++)(*:398)'
                 .'|/re(?'
-                    .'|fuse/([^/]++)(*:399)'
-                    .'|gister/confirm/([^/]++)(*:430)'
-                    .'|setting/reset/([^/]++)(*:460)'
+                    .'|fuse/([^/]++)(*:425)'
+                    .'|gister/confirm/([^/]++)(*:456)'
+                    .'|setting/reset/([^/]++)(*:486)'
                 .')'
             .')/?$}sD',
     ],
@@ -83,13 +86,14 @@ return [
         213 => [[['_route' => 'category', '_controller' => 'App\\Controller\\WebsiteController::SearchByCategory'], ['id'], null, null, false, true, null]],
         239 => [[['_route' => 'promote', '_controller' => 'App\\Controller\\UserController::promoteUserAction'], ['id'], null, null, false, true, null]],
         267 => [[['_route' => 'dispromote', '_controller' => 'App\\Controller\\UserController::dispromoteUserAction'], ['id'], null, null, false, true, null]],
-        296 => [[['_route' => 'delete_user', '_controller' => 'App\\Controller\\UserController::deleteUser'], ['id'], null, null, false, true, null]],
-        324 => [[['_route' => 'show', '_controller' => 'App\\Controller\\WebsiteController::Show'], ['id'], null, null, false, true, null]],
-        347 => [[['_route' => 'delete_website', '_controller' => 'App\\Controller\\WebsiteController::Delete'], ['id'], null, null, false, true, null]],
-        372 => [[['_route' => 'accept', '_controller' => 'App\\Controller\\WebsiteController::Accept'], ['id'], null, null, false, true, null]],
-        399 => [[['_route' => 'refuse', '_controller' => 'App\\Controller\\WebsiteController::Refuse'], ['id'], null, null, false, true, null]],
-        430 => [[['_route' => 'fos_user_registration_confirm', '_controller' => 'fos_user.registration.controller:confirmAction'], ['token'], ['GET' => 0], null, false, true, null]],
-        460 => [
+        299 => [[['_route' => 'delete_user', '_controller' => 'App\\Controller\\UserController::deleteUser'], ['id'], null, null, false, true, null]],
+        321 => [[['_route' => 'update', '_controller' => 'App\\Controller\\WebsiteController::update'], ['id'], null, null, false, true, null]],
+        350 => [[['_route' => 'show', '_controller' => 'App\\Controller\\WebsiteController::Show'], ['id'], null, null, false, true, null]],
+        373 => [[['_route' => 'delete_website', '_controller' => 'App\\Controller\\WebsiteController::Delete'], ['id'], null, null, false, true, null]],
+        398 => [[['_route' => 'accept', '_controller' => 'App\\Controller\\WebsiteController::Accept'], ['id'], null, null, false, true, null]],
+        425 => [[['_route' => 'refuse', '_controller' => 'App\\Controller\\WebsiteController::Refuse'], ['id'], null, null, false, true, null]],
+        456 => [[['_route' => 'fos_user_registration_confirm', '_controller' => 'fos_user.registration.controller:confirmAction'], ['token'], ['GET' => 0], null, false, true, null]],
+        486 => [
             [['_route' => 'fos_user_resetting_reset', '_controller' => 'fos_user.resetting.controller:resetAction'], ['token'], ['GET' => 0, 'POST' => 1], null, false, true, null],
             [null, null, null, null, false, false, 0],
         ],

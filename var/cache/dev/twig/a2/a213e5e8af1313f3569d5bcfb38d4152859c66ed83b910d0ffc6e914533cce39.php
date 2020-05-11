@@ -223,24 +223,29 @@ class __TwigTemplate_9b42635dd88f37bdcaedf0abf6652dc2dc230533e7b9f603b4a6f74adf1
             echo "            <a class=\"btn btn-warning\" href=\"";
             echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("owner");
             echo "\"> My Websites</a>
+            <a class=\"btn btn-info\" href=\"";
+            // line 141
+            echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("fos_user_security_logout");
+            echo "\">Logout</a> 
+
         ";
         }
-        // line 142
+        // line 144
         echo "        <a href=\"\" class=\"btn btn-success\" > contact</a>
         ";
-        // line 143
-        $this->displayBlock('nav', $context, $blocks);
         // line 145
+        $this->displayBlock('nav', $context, $blocks);
+        // line 147
         echo "
     </nav>
 
     ";
-        // line 148
+        // line 150
         $this->displayBlock('body', $context, $blocks);
-        // line 149
+        // line 151
         echo "        ";
         $this->displayBlock('javascripts', $context, $blocks);
-        // line 150
+        // line 152
         echo "        <script src=\"https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js\" integrity=\"sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=\" crossorigin=\"anonymous\"></script>
 
     </body>
@@ -291,7 +296,7 @@ class __TwigTemplate_9b42635dd88f37bdcaedf0abf6652dc2dc230533e7b9f603b4a6f74adf1
 
     }
 
-    // line 143
+    // line 145
     public function block_nav($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -301,7 +306,7 @@ class __TwigTemplate_9b42635dd88f37bdcaedf0abf6652dc2dc230533e7b9f603b4a6f74adf1
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "nav"));
 
-        // line 144
+        // line 146
         echo "        ";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
@@ -311,7 +316,7 @@ class __TwigTemplate_9b42635dd88f37bdcaedf0abf6652dc2dc230533e7b9f603b4a6f74adf1
 
     }
 
-    // line 148
+    // line 150
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -329,7 +334,7 @@ class __TwigTemplate_9b42635dd88f37bdcaedf0abf6652dc2dc230533e7b9f603b4a6f74adf1
 
     }
 
-    // line 149
+    // line 151
     public function block_javascripts($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -359,7 +364,7 @@ class __TwigTemplate_9b42635dd88f37bdcaedf0abf6652dc2dc230533e7b9f603b4a6f74adf1
 
     public function getDebugInfo()
     {
-        return array (  333 => 149,  315 => 148,  305 => 144,  295 => 143,  277 => 6,  258 => 5,  244 => 150,  241 => 149,  239 => 148,  234 => 145,  232 => 143,  229 => 142,  223 => 140,  218 => 138,  213 => 137,  211 => 136,  207 => 135,  85 => 16,  81 => 15,  77 => 14,  72 => 12,  65 => 8,  60 => 7,  58 => 6,  54 => 5,  48 => 1,);
+        return array (  338 => 151,  320 => 150,  310 => 146,  300 => 145,  282 => 6,  263 => 5,  249 => 152,  246 => 151,  244 => 150,  239 => 147,  237 => 145,  234 => 144,  228 => 141,  223 => 140,  218 => 138,  213 => 137,  211 => 136,  207 => 135,  85 => 16,  81 => 15,  77 => 14,  72 => 12,  65 => 8,  60 => 7,  58 => 6,  54 => 5,  48 => 1,);
     }
 
     public function getSourceContext()
@@ -504,6 +509,8 @@ class __TwigTemplate_9b42635dd88f37bdcaedf0abf6652dc2dc230533e7b9f603b4a6f74adf1
             <a class=\"btn btn-success\" href=\"{{ path('fos_user_security_login') }}\">Login</a>
         {% else %}
             <a class=\"btn btn-warning\" href=\"{{ path('owner') }}\"> My Websites</a>
+            <a class=\"btn btn-info\" href=\"{{ path(\"fos_user_security_logout\") }}\">Logout</a> 
+
         {% endif %}
         <a href=\"\" class=\"btn btn-success\" > contact</a>
         {% block nav %}

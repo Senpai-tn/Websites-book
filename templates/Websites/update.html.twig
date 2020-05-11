@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+{% block title %} Add new Website {% endblock %}
+{% block body %}
+
+    <div style="margin: 5% 5% 5% 5%">
+
+    
+        <section role="main" class="content-body">
+            <div class="form-group">
+           
+                {{ form_start(form)   }}
+
+                Name : {{ form_widget(form.Name, {'attr': {'class': 'form-control','placeholder':'Type the title','value':website.name}}) }}
+
+                Url : {{ form_widget(form.URL, {'attr': {'class': 'form-control','placeholder':'Type the title','value':website.url}}) }}
+
+                Description : {{ form_widget(form.description, {'attr': {'class': 'form-control','placeholder':'Type the title','value':website.description}}) }}
+                
+                Category : {{ form_widget(form.category, {'attr': {'class': 'form-control','value':website.category.id }}) }}
+
+                Logo : {{ form_widget(form.logo, {'attr': {'class': 'form-control','required':'true' }}) }}
+                {{ form_end(form) }}
+            </div>
+        </section>
+    </div>
+
+{% endblock %}
