@@ -3,6 +3,11 @@
 {% block title %} {{ title }} {% endblock %}
 
 {% block body %}
+    {% for message in app.flashes('success') %}
+        <div class="alert alert-success" style="position: absolute;top:100px;z-index: 120;">
+            {{ message }}
+        </div>
+    {% endfor %}
 
     <div class="job-search">
 

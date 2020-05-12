@@ -343,24 +343,6 @@ class WebsiteController extends AbstractController
     */
     public function update($id,Request $r)
     {
-        $m = $this->getDoctrine()->getManager();
-        $admins = $m->getRepository(User::class)->findAll();
-        $a = [];
-        foreach ($admins as $user)
-        {
-            if (in_array("ROLE_ADMIN",$user->getRoles()))
-            {
-                $u["id"] = $user->getID();
-                $u["username"] = $user->getUsername();
-                $u["email"] = $user->getEmail();
-                array_push($a, $u);
-            }
-
-
-        }
-        //var_dump($a);
-        //die();
-        return $this->json($a);
     	if (($this->container->get('security.authorization_checker')->isGranted('ROLE_VENDEUR'))) {
             $m = $this->getDoctrine()->getManager();
             
@@ -415,6 +397,61 @@ class WebsiteController extends AbstractController
         }
         else
             return $this->render('403.html.twig');
+    }
+
+    /**
+     * @Route("/contact",name="contact")
+     */
+    public function Contact()
+    {
+        $u = $this->container->get('security.token_storage')->getToken()->getUser();
+        if($u == "anon.")
+        {
+            $this->addFlash('success', 'You must be logged to send messages');
+            return $this->redirect($this->generateUrl("index"));
+        }
+        return $this->render("contact.html.twig");
+    }
+
+    /**
+     * @Route("/contactAction",name="contactAction")
+     */
+    public function SendMails(Request $r,\Swift_Mailer $mailer)
+    {
+        $u = $this->container->get('security.token_storage')->getToken()->getUser();
+        if($u == "anon.")
+        {
+            $this->addFlash('success', 'You must be logged to send messages');
+            return $this->redirect($this->generateUrl("index"));
+        }
+        $m = $this->getDoctrine()->getManager();
+        $admins = $m->getRepository(User::class)->findAll();
+
+        foreach ($admins as $user)
+        {
+
+            if (in_array("ROLE_ADMIN",$user->getRoles()))
+            {
+                try
+                {
+                    $message = (new \Swift_Message('Hello Email'))
+                        ->setFrom($u->getEmail())
+                        ->setTo($user->getEmail())
+                        ->setBody(
+                            $r->request->get("message")
+                        )
+                    ;
+                    $mailer->send($message);
+                }
+                catch(Exception $e)
+                {
+
+                }
+
+            }
+        }
+        $this->addFlash('success', 'Message sent to website admins');
+        return $this->redirect($this->generateUrl("index"));
     }
 
    

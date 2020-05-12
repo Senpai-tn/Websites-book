@@ -22,6 +22,8 @@ return [
         '/deleted' => [[['_route' => 'deleted', '_controller' => 'App\\Controller\\WebsiteController::Deleted'], null, null, null, false, false, null]],
         '/add' => [[['_route' => 'add_website', '_controller' => 'App\\Controller\\WebsiteController::Add'], null, null, null, false, false, null]],
         '/list' => [[['_route' => 'list_websites', '_controller' => 'App\\Controller\\WebsiteController::List'], null, null, null, false, false, null]],
+        '/contact' => [[['_route' => 'contact', '_controller' => 'App\\Controller\\WebsiteController::Contact'], null, null, null, false, false, null]],
+        '/contactAction' => [[['_route' => 'contactAction', '_controller' => 'App\\Controller\\WebsiteController::SendMails'], null, null, null, false, false, null]],
         '/login' => [[['_route' => 'fos_user_security_login', '_controller' => 'fos_user.security.controller:loginAction'], null, ['GET' => 0, 'POST' => 1], null, false, false, null]],
         '/login_check' => [[['_route' => 'fos_user_security_check', '_controller' => 'fos_user.security.controller:checkAction'], null, ['POST' => 0], null, false, false, null]],
         '/logout' => [[['_route' => 'fos_user_security_logout', '_controller' => 'fos_user.security.controller:logoutAction'], null, ['GET' => 0, 'POST' => 1], null, false, false, null]],

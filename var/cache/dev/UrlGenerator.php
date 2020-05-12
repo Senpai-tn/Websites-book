@@ -34,6 +34,8 @@ return [
     'accept' => [['id'], ['_controller' => 'App\\Controller\\WebsiteController::Accept'], [], [['variable', '/', '[^/]++', 'id'], ['text', '/accept']], [], []],
     'refuse' => [['id'], ['_controller' => 'App\\Controller\\WebsiteController::Refuse'], [], [['variable', '/', '[^/]++', 'id'], ['text', '/refuse']], [], []],
     'update' => [['id'], ['_controller' => 'App\\Controller\\WebsiteController::update'], [], [['variable', '/', '[^/]++', 'id'], ['text', '/update']], [], []],
+    'contact' => [[], ['_controller' => 'App\\Controller\\WebsiteController::Contact'], [], [['text', '/contact']], [], []],
+    'contactAction' => [[], ['_controller' => 'App\\Controller\\WebsiteController::SendMails'], [], [['text', '/contactAction']], [], []],
     'fos_user_security_login' => [[], ['_controller' => 'fos_user.security.controller:loginAction'], [], [['text', '/login']], [], []],
     'fos_user_security_check' => [[], ['_controller' => 'fos_user.security.controller:checkAction'], [], [['text', '/login_check']], [], []],
     'fos_user_security_logout' => [[], ['_controller' => 'fos_user.security.controller:logoutAction'], [], [['text', '/logout']], [], []],

@@ -231,7 +231,9 @@ class __TwigTemplate_9b42635dd88f37bdcaedf0abf6652dc2dc230533e7b9f603b4a6f74adf1
         ";
         }
         // line 144
-        echo "        <a href=\"\" class=\"btn btn-success\" > contact</a>
+        echo "        <a href=\"";
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("contact");
+        echo "\" class=\"btn btn-success\" > contact</a>
         ";
         // line 145
         $this->displayBlock('nav', $context, $blocks);
@@ -364,7 +366,7 @@ class __TwigTemplate_9b42635dd88f37bdcaedf0abf6652dc2dc230533e7b9f603b4a6f74adf1
 
     public function getDebugInfo()
     {
-        return array (  338 => 151,  320 => 150,  310 => 146,  300 => 145,  282 => 6,  263 => 5,  249 => 152,  246 => 151,  244 => 150,  239 => 147,  237 => 145,  234 => 144,  228 => 141,  223 => 140,  218 => 138,  213 => 137,  211 => 136,  207 => 135,  85 => 16,  81 => 15,  77 => 14,  72 => 12,  65 => 8,  60 => 7,  58 => 6,  54 => 5,  48 => 1,);
+        return array (  340 => 151,  322 => 150,  312 => 146,  302 => 145,  284 => 6,  265 => 5,  251 => 152,  248 => 151,  246 => 150,  241 => 147,  239 => 145,  234 => 144,  228 => 141,  223 => 140,  218 => 138,  213 => 137,  211 => 136,  207 => 135,  85 => 16,  81 => 15,  77 => 14,  72 => 12,  65 => 8,  60 => 7,  58 => 6,  54 => 5,  48 => 1,);
     }
 
     public function getSourceContext()
@@ -512,7 +514,7 @@ class __TwigTemplate_9b42635dd88f37bdcaedf0abf6652dc2dc230533e7b9f603b4a6f74adf1
             <a class=\"btn btn-info\" href=\"{{ path(\"fos_user_security_logout\") }}\">Logout</a> 
 
         {% endif %}
-        <a href=\"\" class=\"btn btn-success\" > contact</a>
+        <a href=\"{{ path(\"contact\") }}\" class=\"btn btn-success\" > contact</a>
         {% block nav %}
         {% endblock %}
 

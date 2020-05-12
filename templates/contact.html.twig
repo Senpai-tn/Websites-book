@@ -1,0 +1,15 @@
+{% extends "base.html.twig" %}
+{% block body %}
+<div style="margin: 5% 5% 5% 5%">
+    <section role="main" class="content-body">
+        <div class="form-group">  
+            <form action="{{ path("contactAction") }}" method="post">
+                <input type="text" name="message" id="">
+                <br>
+                <input type="submit" value="Send">
+            </form>
+        </div>
+    </section>
+</div>
+            
+{% endblock %}
