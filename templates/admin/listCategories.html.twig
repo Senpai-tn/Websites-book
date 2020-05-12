@@ -1,0 +1,25 @@
+{% extends 'baseAdmin.html.twig' %}
+{% block body %}
+<section id="main-content">
+    <section class="wrapper">
+        <div class="col-lg-8 main-chart">
+            <table class="table table-dark sortable">
+                <thead>
+                <tr>
+                    <th scope="col">Name</th>
+                    <th>Actions</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for c in categories %}
+                    <tr >
+                        <td>{{ c.name }}</td>
+                        <td><a href="{{ path("delete_category",{'id':c.id}) }}">Delete</a></td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </section>
+</section>
+{% endblock %}

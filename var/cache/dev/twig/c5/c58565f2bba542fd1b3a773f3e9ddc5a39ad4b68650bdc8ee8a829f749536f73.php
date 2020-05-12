@@ -175,33 +175,32 @@ class __TwigTemplate_c2765a6b52aebaea8e1f2a156db01023b8157089368fd358b05d29a3bdb
                     </ul>
 
                 </li>
-
                 <li class=\"sub-menu\">
                     <a href=\"javascript:;\">
                         <i class=\"fa fa-desktop\"></i>
-                        <span>Users</span>
+                        <span>Categories</span>
                     </a>
                     <ul class=\"sub\">
                         <li><a href=\"";
-        // line 89
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("users");
-        echo "\">List of Users</a></li>
+        // line 88
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("addCategory");
+        echo "\">Add Category</a></li>
                         <li><a href=\"";
-        // line 90
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("admin");
-        echo "\">List of Websites</a></li>
-                        <li>
-                            <a href=\"";
-        // line 92
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("deleted");
-        echo "\">
-                                Websites Deleted
-                            </a>
-
-                        </li>
+        // line 89
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("listCategories");
+        echo "\">List of Categories</a></li>
 
                     </ul>
 
+                </li>
+                <li class=\"sub-menu\">
+                    <a href=\"";
+        // line 95
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("users");
+        echo "\">
+                        <i class=\"fa fa-user\"></i>
+                        <span>List of Users</span>
+                    </a>
                 </li>
                 <li>
 
@@ -221,9 +220,9 @@ class __TwigTemplate_c2765a6b52aebaea8e1f2a156db01023b8157089368fd358b05d29a3bdb
     </aside>
 
     ";
-        // line 118
+        // line 117
         $this->displayBlock('body', $context, $blocks);
-        // line 119
+        // line 118
         echo "
 
 
@@ -231,50 +230,50 @@ class __TwigTemplate_c2765a6b52aebaea8e1f2a156db01023b8157089368fd358b05d29a3bdb
 
 <!-- js placed at the end of the document so the pages load faster -->
 <script src=\"";
-        // line 125
+        // line 124
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("Admin/lib/jquery/jquery.min.js"), "html", null, true);
         echo "\"></script>
 
 <script src=\"";
-        // line 127
+        // line 126
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("Admin/lib/bootstrap/js/bootstrap.min.js"), "html", null, true);
         echo "\"></script>
 <script class=\"include\" type=\"text/javascript\" src=\"";
-        // line 128
+        // line 127
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("Admin/lib/jquery.dcjqaccordion.2.7.js"), "html", null, true);
         echo "\"></script>
 <script src=\"";
-        // line 129
+        // line 128
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("Admin/lib/jquery.scrollTo.min.js"), "html", null, true);
         echo "\"></script>
 <script src=\"";
-        // line 130
+        // line 129
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("Admin/lib/jquery.nicescroll.js"), "html", null, true);
         echo "\" type=\"text/javascript\"></script>
 <script src=\"";
-        // line 131
+        // line 130
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("Admin/lib/jquery.sparkline.js"), "html", null, true);
         echo "\"></script>
 <!--common script for all pages-->
 <script src=\"";
-        // line 133
+        // line 132
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("Admin/lib/common-scripts.js"), "html", null, true);
         echo "\"></script>
 <script type=\"text/javascript\" src=\"";
-        // line 134
+        // line 133
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("Admin/lib/gritter/js/jquery.gritter.js"), "html", null, true);
         echo "\"></script>
 <script type=\"text/javascript\" src=\"";
-        // line 135
+        // line 134
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("Admin/lib/gritter-conf.js"), "html", null, true);
         echo "\"></script>
 <!--script for this page-->
 <script src=\"";
-        // line 137
+        // line 136
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("Admin/lib/sparkline-chart.js"), "html", null, true);
         echo "\"></script>
 <script src=\"";
-        // line 138
+        // line 137
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("Admin/lib/zabuto_calendar.js"), "html", null, true);
         echo "\"></script>
 <script type=\"text/javascript\">
@@ -340,7 +339,7 @@ class __TwigTemplate_c2765a6b52aebaea8e1f2a156db01023b8157089368fd358b05d29a3bdb
     }
 </script>
 <script src=\"";
-        // line 201
+        // line 200
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("js/sorttable.js"), "html", null, true);
         echo "\"></script>
 </body>
@@ -355,7 +354,7 @@ class __TwigTemplate_c2765a6b52aebaea8e1f2a156db01023b8157089368fd358b05d29a3bdb
 
     }
 
-    // line 118
+    // line 117
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -386,7 +385,7 @@ class __TwigTemplate_c2765a6b52aebaea8e1f2a156db01023b8157089368fd358b05d29a3bdb
 
     public function getDebugInfo()
     {
-        return array (  359 => 118,  344 => 201,  278 => 138,  274 => 137,  269 => 135,  265 => 134,  261 => 133,  256 => 131,  252 => 130,  248 => 129,  244 => 128,  240 => 127,  235 => 125,  227 => 119,  225 => 118,  196 => 92,  191 => 90,  187 => 89,  168 => 73,  163 => 71,  159 => 70,  145 => 59,  139 => 56,  123 => 43,  119 => 42,  109 => 37,  95 => 26,  91 => 25,  87 => 24,  83 => 23,  79 => 22,  75 => 21,  70 => 19,  64 => 16,  60 => 15,  44 => 1,);
+        return array (  358 => 117,  343 => 200,  277 => 137,  273 => 136,  268 => 134,  264 => 133,  260 => 132,  255 => 130,  251 => 129,  247 => 128,  243 => 127,  239 => 126,  234 => 124,  226 => 118,  224 => 117,  199 => 95,  190 => 89,  186 => 88,  168 => 73,  163 => 71,  159 => 70,  145 => 59,  139 => 56,  123 => 43,  119 => 42,  109 => 37,  95 => 26,  91 => 25,  87 => 24,  83 => 23,  79 => 22,  75 => 21,  70 => 19,  64 => 16,  60 => 15,  44 => 1,);
     }
 
     public function getSourceContext()
@@ -472,24 +471,23 @@ class __TwigTemplate_c2765a6b52aebaea8e1f2a156db01023b8157089368fd358b05d29a3bdb
                     </ul>
 
                 </li>
-
                 <li class=\"sub-menu\">
                     <a href=\"javascript:;\">
                         <i class=\"fa fa-desktop\"></i>
-                        <span>Users</span>
+                        <span>Categories</span>
                     </a>
                     <ul class=\"sub\">
-                        <li><a href=\"{{ path(\"users\") }}\">List of Users</a></li>
-                        <li><a href=\"{{ path(\"admin\") }}\">List of Websites</a></li>
-                        <li>
-                            <a href=\"{{ path(\"deleted\") }}\">
-                                Websites Deleted
-                            </a>
-
-                        </li>
+                        <li><a href=\"{{ path(\"addCategory\") }}\">Add Category</a></li>
+                        <li><a href=\"{{ path(\"listCategories\") }}\">List of Categories</a></li>
 
                     </ul>
 
+                </li>
+                <li class=\"sub-menu\">
+                    <a href=\"{{ path(\"users\") }}\">
+                        <i class=\"fa fa-user\"></i>
+                        <span>List of Users</span>
+                    </a>
                 </li>
                 <li>
 

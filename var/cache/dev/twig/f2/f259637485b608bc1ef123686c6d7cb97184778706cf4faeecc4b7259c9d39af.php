@@ -148,38 +148,7 @@ $context["w"], "state", [], "any", false, false, false, 29), 0)) {
                     </table>
                 </div>
 
-                <div class=\"col-lg-4 main-chart\">
-                    <table class=\"table table-dark sortable\">
-                        <thead>
-                        <tr>
-                            <th scope=\"col\">Name</th>
 
-
-
-                        </tr>
-                        </thead>
-                        <tbody>
-                        ";
-        // line 52
-        $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable((isset($context["categories"]) || array_key_exists("categories", $context) ? $context["categories"] : (function () { throw new RuntimeError('Variable "categories" does not exist.', 52, $this->source); })()));
-        foreach ($context['_seq'] as $context["_key"] => $context["c"]) {
-            // line 53
-            echo "                            <tr >
-                                <td>";
-            // line 54
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["c"], "name", [], "any", false, false, false, 54), "html", null, true);
-            echo "</td>
-                            </tr>
-                        ";
-        }
-        $_parent = $context['_parent'];
-        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['c'], $context['_parent'], $context['loop']);
-        $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 57
-        echo "                        </tbody>
-                    </table>
-                </div>
 
             </div>
         </section>
@@ -205,7 +174,7 @@ $context["w"], "state", [], "any", false, false, false, 29), 0)) {
 
     public function getDebugInfo()
     {
-        return array (  180 => 57,  171 => 54,  168 => 53,  164 => 52,  147 => 37,  137 => 32,  131 => 30,  129 => 29,  122 => 28,  120 => 27,  111 => 26,  109 => 25,  102 => 23,  98 => 22,  93 => 21,  90 => 20,  86 => 19,  68 => 3,  58 => 2,  35 => 1,);
+        return array (  147 => 37,  137 => 32,  131 => 30,  129 => 29,  122 => 28,  120 => 27,  111 => 26,  109 => 25,  102 => 23,  98 => 22,  93 => 21,  90 => 20,  86 => 19,  68 => 3,  58 => 2,  35 => 1,);
     }
 
     public function getSourceContext()
@@ -250,25 +219,7 @@ $context["w"], "state", [], "any", false, false, false, 29), 0)) {
                     </table>
                 </div>
 
-                <div class=\"col-lg-4 main-chart\">
-                    <table class=\"table table-dark sortable\">
-                        <thead>
-                        <tr>
-                            <th scope=\"col\">Name</th>
 
-
-
-                        </tr>
-                        </thead>
-                        <tbody>
-                        {% for c in categories %}
-                            <tr >
-                                <td>{{ c.name }}</td>
-                            </tr>
-                        {% endfor %}
-                        </tbody>
-                    </table>
-                </div>
 
             </div>
         </section>

@@ -22,8 +22,6 @@ use function Sodium\add;
 class WebsiteController extends AbstractController
 {
     /**
-     * Creates a new ActionItem entity.
-     *
      * @Route("/search", name="ajax_search")
      */
     public function searchAction(Request $request)
@@ -123,17 +121,19 @@ class WebsiteController extends AbstractController
         $m = $this->getDoctrine()->getManager();
         $websites   = $m->getRepository(Website::class)->findAll();
         $categories = $m->getRepository(Category::class)->findAll();
-
-       $nbrvisites = array();
-        foreach ($websites as $key => $value )
+        $nbrvisites = array();
+        foreach ($categories as $key => $value )
         {
-            if(array_key_exists($value->getCategory()->getId(),$nbrvisites)  )
-            $nbrvisites[$value->getCategory()->getId()]  +=  $m->getRepository(Website::class)->find($value->getId())->getNbVisites();
-            else
-                $nbrvisites[$value->getCategory()->getId()]  =  $m->getRepository(Website::class)->find($value->getId())->getNbVisites();
+            $somme = 0;
+            foreach ($value->getWebsites() as $w)
+            {
+                $somme += $w->getNbVisites();
+            }
+            $nbrvisites[$value->getID()]=$somme;
 
         }
-        $new   = $m->getRepository(Website::class)->findBy(["state"=>2]);
+
+        $new   = $m->getRepository(Website::class)->findBy(["state"=>2,"deletedAt"=>null]);
         $mounths[0] = $this->getDoctrine()
             ->getRepository(Website::class)
             ->getDays(new \DateTime('01-01-'.date("Y")), new \DateTime('31-01-'.date("Y")));
@@ -170,7 +170,6 @@ class WebsiteController extends AbstractController
         $mounths[11] = $this->getDoctrine()
             ->getRepository(Website::class)
             ->getDays(new \DateTime('01-12-'.date("Y")), new \DateTime('31-12-'.date("Y")));
-
         return $this->render("admin/index.html.twig",["websites"=>$websites,"categories"=>$categories,
             "new"=>$new,"mounths"=>$mounths,"nbrvisites"=>$nbrvisites]);
     }
@@ -186,7 +185,7 @@ class WebsiteController extends AbstractController
         }
         $m = $this->getDoctrine()->getManager();
         $websites   = $m->getRepository(Website::class)->FindDeleted();
-        $new   = $m->getRepository(Website::class)->findBy(["state"=>2]);
+        $new   = $m->getRepository(Website::class)->findBy(["state"=>2,"deletedAt"=>null]);
 
         return $this->render("admin/deleted.html.twig",["websites"=>$websites,"new"=>$new]);
     }
@@ -254,9 +253,8 @@ class WebsiteController extends AbstractController
         if (($this->container->get('security.authorization_checker')->isGranted('ROLE_ADMIN'))) {
             $m = $this->getDoctrine()->getManager();
             $websites = $m->getRepository(Website::class)->findEntitiesByString("");
-            $new = $m->getRepository(Website::class)->findBy(["state" => 2]);
-            $categories = $m->getRepository(Category::class)->findAll();
-            return $this->render("admin/listWebsites.html.twig", ["new" => $new, "websites" => $websites, 'categories' => $categories]);
+            $new = $m->getRepository(Website::class)->findBy(["state" => 2,"deletedAt"=>null]);
+            return $this->render("admin/listWebsites.html.twig", ["new" => $new, "websites" => $websites]);
         }
         else
             return $this->render('403.html.twig');

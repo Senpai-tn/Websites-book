@@ -79,24 +79,23 @@
                     </ul>
 
                 </li>
-
                 <li class="sub-menu">
                     <a href="javascript:;">
                         <i class="fa fa-desktop"></i>
-                        <span>Users</span>
+                        <span>Categories</span>
                     </a>
                     <ul class="sub">
-                        <li><a href="{{ path("users") }}">List of Users</a></li>
-                        <li><a href="{{ path("admin") }}">List of Websites</a></li>
-                        <li>
-                            <a href="{{ path("deleted") }}">
-                                Websites Deleted
-                            </a>
-
-                        </li>
+                        <li><a href="{{ path("addCategory") }}">Add Category</a></li>
+                        <li><a href="{{ path("listCategories") }}">List of Categories</a></li>
 
                     </ul>
 
+                </li>
+                <li class="sub-menu">
+                    <a href="{{ path("users") }}">
+                        <i class="fa fa-user"></i>
+                        <span>List of Users</span>
+                    </a>
                 </li>
                 <li>
 

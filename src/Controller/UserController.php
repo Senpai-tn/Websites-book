@@ -33,10 +33,14 @@ class UserController extends AbstractController
      */
     public function Users()
     {
-        $m = $this->getDoctrine()->getManager();
-        $users = $m->getRepository(User::class)->findAll();
-        $new   = $m->getRepository(Website::class)->findBy(["state"=>2]);
-        return $this->render("admin\list_users.html.twig",["users"=>$users,"new"=>$new]);
+        if (($this->container->get('security.authorization_checker')->isGranted('ROLE_ADMIN'))) {
+            $m = $this->getDoctrine()->getManager();
+            $users = $m->getRepository(User::class)->findAll();
+            $new = $m->getRepository(Website::class)->findBy(["state" => 2, "deletedAt" => null]);
+            return $this->render("admin\list_users.html.twig", ["users" => $users, "new" => $new]);
+        }
+        else
+            return $this->render('403.html.twig');
     }
 
 
@@ -45,12 +49,17 @@ class UserController extends AbstractController
      */
     public function promoteUserAction($id)
     {
+        if (($this->container->get('security.authorization_checker')->isGranted('ROLE_ADMIN'))) {
+
         $m = $this->getDoctrine()->getManager();
         $user = $m->getRepository(User::class)->find($id);
         $user->addRole('ROLE_ADMIN');
         $m->persist($user);
         $m->flush();
-        return $this->redirect($this->generateUrl("users"));        
+        return $this->redirect($this->generateUrl("users"));
+        }
+        else
+            return $this->render('403.html.twig');
     }
 
     /**
@@ -58,12 +67,17 @@ class UserController extends AbstractController
      */
     public function dispromoteUserAction($id)
     {
+        if (($this->container->get('security.authorization_checker')->isGranted('ROLE_ADMIN'))) {
+
         $m = $this->getDoctrine()->getManager();
         $user = $m->getRepository(User::class)->find($id);
         $user->removeRole('ROLE_ADMIN');
         $m->persist($user);
         $m->flush();
         return $this->redirect($this->generateUrl("users"));
+        }
+        else
+            return $this->render('403.html.twig');
     }
 
 
@@ -72,11 +86,15 @@ class UserController extends AbstractController
      */
     public function deleteUser($id)
     {
+        if (($this->container->get('security.authorization_checker')->isGranted('ROLE_ADMIN'))) {
         $m = $this->getDoctrine()->getManager();
         $user = $m->getRepository(User::class)->find($id);
         $m->remove($user);
         $m->flush();
         return $this->redirect($this->generateUrl("users"));
+        }
+        else
+            return $this->render('403.html.twig');
     }
 
 
